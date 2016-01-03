@@ -27,6 +27,7 @@
 	<link rel="stylesheet" href="css/screen.css">
 
 	<script src="js/jquery.js"></script>
+	<script src="js/checkout.js"></script>
 	<script src="js/plugins/queryloader.js"></script>
 	<script src="js/plugins/easing.js"></script>
 	<script src="js/plugins/sticky.js"></script>
@@ -297,17 +298,102 @@
 		<section class="box call-action-box white" id="products">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center">
-						<h3>Buy now our theme</h3>
+					<div class="col-md-12 text-center">
+						<h3>Buy now our Juice</h3>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, sunt, harum, sint, cumque vel deleniti molestiae perspiciatis ut molestias delectus at enim recusandae tempore quod exercitationem ipsum culpa rem architecto!
-						</p>
-						<br>
-						<p>
-							<a href="#" class="button-lg hover-dark-blue blue">Find more info</a>
-							<a href="#" class="button-lg hover-dark-red red">Purchase now</a>
+							Our delicious tasting juices are made and sold here in USA. Grab a couple for yourself and enjoy the delcious taste.
 						</p>
 					</div>
+				</div><!--  End Row -->
+				<div class="row">
+					<div class="col-md-6">
+						<img src="img/bottle-reflection.png" alt="">
+					</div>
+					<div class="col-md-6" id="quan-form" style="">
+						<ul>
+							<li>Text here</li>
+							<li>Text here</li>
+							<li>Text here</li>
+						</ul>
+						<br>
+						<div id="checkout-form">
+							<label for="quantity">Quantity $3.95</label>
+							<div id="quan-fiels">
+								<input type="text" name="quantity" id="quantity-input" value="1">
+								<div id="quan-buttons">
+									<button id="button-up" class="icon-511"></button>
+									<button id="button-down" class="icon-507"></button>
+								</div>
+								<br>
+							</div>
+							<button id="checkout-submit-button" class="button-lg dark-red text-white hover-red">Purchase</button>
+						</div>	
+					</div><!--  End quantity form -->
+
+					<div class="col-md-6" id="cc-form" style="display:none">
+						<div id="checkout-form-2">
+							<label for="final-quantity">Quantity</label>
+							<div id="quan-fiels">
+								<input type="text" name="final-quantity" id="final-quantity-input" value="1">
+								<div id="quan-buttons-2">
+									<button id="button-up-2" class="icon-511"></button>
+									<button id="button-down-2" class="icon-507"></button>
+								</div>
+								<br>
+							</div>
+						</div>	
+
+						<form action="/" method="post" id="cc-form">
+
+							<div class="form-row">
+								<label for="name" class="stripeLabel">Your Name</label>
+								<input type="text" name="name" class="required" />
+							</div>            
+
+							<div class="form-row">
+								<label for="email">E-mail Address</label>
+								<input type="text" name="email" class="required" />
+							</div>            
+
+							<div class="form-row">
+								<label>Card Number</label>
+								<input type="text" maxlength="20" autocomplete="off" class="card-number stripe-sensitive required" />
+							</div>
+
+							<div class="form-row">
+								<label>CVC</label>
+								<input type="text" maxlength="4" autocomplete="off" class="card-cvc stripe-sensitive required" />
+							</div>
+
+							<div class="form-row">
+								<label>Expiration</label>
+								<div class="expiry-wrapper">
+									<select class="card-expiry-month stripe-sensitive required">
+									</select>
+									<script type="text/javascript">
+									var select = $(".card-expiry-month"),
+									month = new Date().getMonth() + 1;
+									for (var i = 1; i <= 12; i++) {
+										select.append($("<option value='"+i+"' "+(month === i ? "selected" : "")+">"+i+"</option>"))
+									}
+									</script>
+									<span> / </span>
+									<select class="card-expiry-year stripe-sensitive required"></select>
+									<script type="text/javascript">
+									var select = $(".card-expiry-year"),
+									year = new Date().getFullYear();
+									for (var i = 0; i < 12; i++) {
+										select.append($("<option value='"+(i + year)+"' "+(i === 0 ? "selected" : "")+">"+(i + year)+"</option>"))
+									}
+									</script>
+								</div>
+							</div>
+
+							<button type="submit" name="submit-button" class="button-md dark-red text-white hover-red">Submit</button>
+							<span class="payment-errors"></span>
+						</form>
+
+					</div> <!-- End cc form -->
 				</div> <!-- /.row -->
 			</div> <!-- /.container -->
 		</section>  <!-- /.call-action-box -->
@@ -386,7 +472,7 @@
 						<div class="col-md-6">
 							<p class="copyright text-dark">
 								<span>copyright 2016</span>
-								<p>Guyaa! is ba <a href="http://www.greenearthvitamins.com">Green Earth Vitamins</a>, Inc Company</p>
+								<p>Guyaa! is a <a href="http://www.greenearthvitamins.com">Green Earth Vitamins</a>, Inc Company</p>
 								<span> designed by</span>
 								<a href="https://www.linkedin.com/in/jsarasdev" class="text-dark-blue">Jeff Saras</a>	
 							</p>
@@ -415,5 +501,6 @@
 
 	<!-- Scripts -->
 	<script async src="js/options.js"></script>
+	
 </body>
 </html>

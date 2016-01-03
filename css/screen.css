@@ -7948,3 +7948,34 @@ html.swipebox-html.swipebox-touch
 .dark-blue {
   background-color: #245BAB;
 }
+
+#quantity-input, #final-quantity-input {
+padding: 9px;
+    width: 20%;
+    height: 63px;
+  }
+
+#final-quantity-input {
+  height: 45px;
+}
+
+#checkout-form {
+  position: relative;
+}
+
+#quan-buttons, #quan-buttons-2  {
+  position: relative;
+  height: 63px;
+  width: 40px;
+  display: inline-block;
+  top: 15px;
+}
+
+#button-up, #button-up-2, #button-down, #button-down-2 {
+  width: 41px;
+  height: 27px;
+}
+
+#checkout-submit-button {
+  margin-top: 30px;
+}
